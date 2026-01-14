@@ -28,6 +28,50 @@ SHOPIFY_ADMIN_ACCESS_TOKEN=shpat_xxxxxxxxxxxxxxxxxxxxx
 - `SHOPIFY_STORE_DOMAIN` - Your Shopify store domain (e.g., `my-store.myshopify.com`)
 - `SHOPIFY_ADMIN_ACCESS_TOKEN` - Shopify Admin API access token with metafield permissions
 
+## Get Metadata
+
+#### Shopify GraphiQL App query to get metadata
+```
+query MetafieldDefinitions($ownerType: MetafieldOwnerType!, $first: Int) {
+  metafieldDefinitions(ownerType: $ownerType, first: $first) {
+    nodes {
+      name
+      namespace
+      key
+      type {
+        name
+      }
+      description
+      access {
+        customerAccount
+        storefront
+      }
+      capabilities {
+        adminFilterable {
+          enabled
+        }
+        smartCollectionCondition {
+        	enabled
+      	}
+      	uniqueValues {
+        	enabled
+      	}
+      }
+      constraints {
+        key
+        values(first:250) {
+          
+          nodes {
+            value
+          }
+        }
+      }
+      ownerType
+    }
+  }
+}
+```
+
 ## Metadata File Format
 
 Place your metadata JSON files in the `metadata-files/` directory. Each file should contain:
