@@ -1,4 +1,5 @@
 node_modules
 .idea
 .env
-metadata-files/*.json
+metadata-files/*
+!metadata-files/.gitkeep
