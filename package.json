@@ -1,0 +1,16 @@
+{
+  "name": "shopify-metada-export",
+  "version": "1.0.0",
+  "description": "Shopify metadata export",
+  "license": "MIT",
+  "author": "Volodymyr Zushman",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node --env-file=.env lib/index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cli-progress": "^3.12.0"
+  }
+}
